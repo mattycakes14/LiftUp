@@ -20,14 +20,16 @@ class User:
         return self._password
 
 class Event:
-    def __init__(self, event_id, name, flyer, date, location, description, attendees):
+    def __init__(self, event_id, name, flyer, date, location, description, host, attendees, volunteers):
         self._event_id = event_id
         self._flyer = flyer
         self._name = name
         self._date = date
         self._location = location
         self._description = description
+        self._host = host
         self._attendees = attendees
+        self._volunteers = volunteers
     
     def get_event_id(self):
         return self._event_id
@@ -47,8 +49,17 @@ class Event:
     def get_description(self):
         return self._description
     
+    def get_host(self):
+        return self._host
+    
     def get_attendees(self):
         return self._attendees
     
     def add_attendee(self, user):
         self._attendees.append(user)
+
+    def get_volunteers(self):
+        return self._volunteers
+    
+    def add_volunteer(self, user):
+        self._volunteers.append(user)

@@ -48,3 +48,23 @@ def get_events():
 # Close the connection
 def close_connection():
     conn.close()
+
+# Function to print all users
+def print_users():
+    users = get_users()
+    for user in users:
+        print(f"ID: {user[0]}, Name: {user[1]}, Email: {user[2]}")
+
+# Function to print all events
+def print_events():
+    events = get_events()
+    for event in events:
+        print(f"ID: {event[0]}, Name: {event[1]}, Date: {event[2]}, User ID: {event[3]}")
+
+# Example usage
+if __name__ == "__main__":
+    print("Users:")
+    print_users()
+    print("\nEvents:")
+    print_events()
+    close_connection()

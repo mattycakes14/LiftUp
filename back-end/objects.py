@@ -8,16 +8,16 @@ class User:
         self._password = password
 
     def get_user_id(self):
-        return self.user_id
+        return self._user_id
     
     def get_username(self):
-        return self.username
+        return self._username
     
     def get_email(self):
-        return self.email
+        return self._email
     
     def get_password(self):
-        return self.password
+        return self._password
 
 class Event:
     def __init__(self, event_id, name, flyer, date, location, description, attendees):

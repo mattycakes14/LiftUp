@@ -1,11 +1,13 @@
 # Has code for the User and Event classes
 
 class User:
-    def __init__(self, user_id, username, email, password):
+    def __init__(self, user_id, username, email, password, events_attending, events_volunteering):
         self._user_id = user_id
         self._username = username
         self._email = email
         self._password = password
+        self._events_attending = events_attending
+        self._events_volunteering = events_volunteering
 
     def get_user_id(self):
         return self._user_id

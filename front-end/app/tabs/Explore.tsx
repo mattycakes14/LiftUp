@@ -12,12 +12,12 @@ import {
 import SearchBar from "../components/SearchBar";
 import SearchTags from "../components/SearchTags";
 import { useNavigation } from "@react-navigation/native";
-import EventPage from "../eventPage";
+
 const Explore = () => {
   //handle navigation
   const navigation = useNavigation();
   //selected data
-  const [selectedData, setSelectedData] = useState([]);
+  const [search, setSearch] = useState("");
   //sample data
   const eventData = [
     {
@@ -149,34 +149,38 @@ const Explore = () => {
       <View style={styles.flatListContainer}>
         <FlatList
           data={eventData}
-          renderItem={({ item }) => (
-            <View style={styles.eventContainer}>
-              <TouchableOpacity
-                onPress={() => {
-                  setTimeout(() => {
-                    navigation.navigate("EventPage", {
-                      id: 5,
-                      data: item,
-                    });
-                  }, 500);
-                }}
-                style={styles.touchableContainer}
-              >
-                <View style={styles.eventNameContainer}>
-                  <Text style={styles.eventNameText}>{item.eventName}</Text>
+          keyExtractor={(item) => item.id.toString()} // Ensure each item has a unique key
+          renderItem={
+            ({ item }) =>
+              item.eventName.toLowerCase().startsWith(search) ? ( // Conditional rendering here
+                <View style={styles.eventContainer}>
+                  <TouchableOpacity
+                    onPress={() => {
+                      setTimeout(() => {
+                        navigation.navigate("EventPage", {
+                          id: 5,
+                          data: item,
+                        });
+                      }, 500);
+                    }}
+                    style={styles.touchableContainer}
+                  >
+                    <View style={styles.eventNameContainer}>
+                      <Text style={styles.eventNameText}>{item.eventName}</Text>
+                    </View>
+                    <View style={styles.timeContainer}>
+                      <Text>{item.time}</Text>
+                      <Image
+                        style={styles.location}
+                        source={require("../../assets/images/placeholder.png")}
+                      />
+                      <Text style={styles.text}>{item.location}</Text>
+                    </View>
+                  </TouchableOpacity>
                 </View>
-                <View style={styles.timeContainer}>
-                  <Text>{item.time}</Text>
-                  <Image
-                    style={styles.location}
-                    source={require("../../assets/images/placeholder.png")}
-                  />
-                  <Text style={styles.text}>{item.location}</Text>
-                </View>
-              </TouchableOpacity>
-            </View>
-          )}
-        ></FlatList>
+              ) : null // Return null if the condition isn't met
+          }
+        />
       </View>
     </SafeAreaView>
   );

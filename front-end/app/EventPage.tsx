@@ -8,7 +8,7 @@ import {
   ScrollView,
 } from "react-native";
 import { useRoute } from "@react-navigation/native";
-import axios from "axios";
+import MapView from "react-native-maps";
 import * as Location from "expo-location";
 const EventPage = () => {
   const route = useRoute();
@@ -34,7 +34,7 @@ const EventPage = () => {
     <View style={styles.eventContainer}>
       <Image
         style={styles.eventImage}
-        source={{uri: image}}
+        source={require(`../assets/images/foodDistribution.jpg`)}
         alt="image"
       />
 

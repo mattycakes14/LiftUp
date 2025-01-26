@@ -12,8 +12,7 @@ import {
 } from "react-native";
 import SearchTags from "../components/SearchTags";
 import { useNavigation } from "@react-navigation/native";
-import axios from "axios";
-
+import MapView from "react-native-maps";
 const Explore = () => {
   //handle navigation
   const navigation = useNavigation();
@@ -37,18 +36,18 @@ const Explore = () => {
   // Event List Fetch
   const [events, setEvents] = useState([]);
   //get request
-  useEffect(() => {
-    // Make the GET request to fetch all events
-    const fetchEvents = async () => {
-      try {
-        const response = await axios.get("http://192.168.1.100:5000/events"); // Replace with your backend IP
-        setEvents(response.data); // Store the fetched events in the state
-      } catch (error) {
-        console.error("Error fetching events:", error);
-      }
-    };
-    fetchEvents(); // Call the fetch function on component mount
-  }, [search]);
+  //   useEffect(() => {
+  //     // Make the GET request to fetch all events
+  //     const fetchEvents = async () => {
+  //       try {
+  //         const response = await axios.get("http://192.168.1.100:5000/events"); // Replace with your backend IP
+  //         setEvents(response.data); // Store the fetched events in the state
+  //       } catch (error) {
+  //         console.error("Error fetching events:", error);
+  //       }
+  //     };
+  //     fetchEvents(); // Call the fetch function on component mount
+  //   }, [search]);
 
   const eventData = [
     {

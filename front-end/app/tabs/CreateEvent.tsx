@@ -90,12 +90,12 @@ const CreateEvent = () => {
                 onChange={(newText) => setDesc(newText)}
               />
             </View>
+            <TouchableOpacity style={styles.submitContainer}>
+              <Text style={styles.submitText}>Create Event</Text>
+            </TouchableOpacity>
           </ScrollView>
         </KeyboardAvoidingView>
       </TouchableWithoutFeedback>
-      <TouchableOpacity style={styles.submitContainer}>
-        <Text style={styles.submitText}>Create Event</Text>
-      </TouchableOpacity>
     </SafeAreaView>
   );
 };

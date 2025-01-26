@@ -133,8 +133,33 @@ def get_events():
     } for event in events]
     return jsonify(events_list), 200
 
+# Add fake data during initialization
+@app.before_first_request
+def add_fake_data():
+    # Add some fake users if the table is empty
+    if User.query.count() == 0:
+        user1 = User(username='john_doe', email='john.doe@example.com', password='password123')
+        user2 = User(username='jane_doe', email='jane.doe@example.com', password='password123')
+        user3 = User(username='alice_smith', email='alice.smith@example.com', password='password123')
+        
+        db.session.add(user1)
+        db.session.add(user2)
+        db.session.add(user3)
+        db.session.commit()
+
+    # Add some fake events if the table is empty
+    if Event.query.count() == 0:
+        event1 = Event(name='Community Meetup', flyer='', date='2025-02-10', location='City Hall', description='A meetup for community members.', host=1)
+        event2 = Event(name='Tech Conference', flyer='', date='2025-03-05', location='Tech Center', description='A tech conference.', host=2)
+        event3 = Event(name='Cooking Workshop', flyer='', date='2025-04-01', location='Community Center', description='Cooking class for beginners.', host=3)
+
+        db.session.add(event1)
+        db.session.add(event2)
+        db.session.add(event3)
+        db.session.commit()
+
 if __name__ == '__main__':
     # Use app context to initialize the database
     with app.app_context():
         db.create_all()  # Create all tables defined in the models
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)

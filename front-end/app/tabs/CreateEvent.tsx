@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
   submitContainer: {
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 40,
+    marginTop: 20,
     backgroundColor: "green",
     padding: 20,
     marginLeft: 100,

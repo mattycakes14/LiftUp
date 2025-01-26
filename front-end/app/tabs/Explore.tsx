@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   SafeAreaView,
   Text,
@@ -8,8 +8,8 @@ import {
   View,
   Image,
   Button,
+  TextInput,
 } from "react-native";
-import SearchBar from "../components/SearchBar";
 import SearchTags from "../components/SearchTags";
 import { useNavigation } from "@react-navigation/native";
 
@@ -18,6 +18,18 @@ const Explore = () => {
   const navigation = useNavigation();
   //selected data
   const [search, setSearch] = useState("");
+  //filter search
+  const [filteredData, setFilteredData] = useState(eventData);
+  useEffect(() => {
+    if (search === "") {
+      setFilteredData(eventData);
+    } else {
+      const filtered = eventData.filter((item) =>
+        item.eventName.toLowerCase().includes(search.toLowerCase())
+      );
+      setFilteredData(filtered);
+    }
+  }, [search]);
   //sample data
   const eventData = [
     {
@@ -150,41 +162,48 @@ const Explore = () => {
 
   return (
     <SafeAreaView>
-      <SearchBar />
+      <View style={styles.searchBarContainer}>
+        <TextInput
+          placeholder="Search for an event"
+          placeholderTextColor="gray"
+          onChangeText={(newText) => setSearch(newText)}
+          style={styles.searchBar}
+          value={search}
+        ></TextInput>
+      </View>
       <SearchTags />
       <View style={styles.flatListContainer}>
         <FlatList
-          data={eventData}
+          data={filteredData}
           keyExtractor={(item) => item.id.toString()} // Ensure each item has a unique key
           renderItem={
-            ({ item }) =>
-              item.eventName.toLowerCase().startsWith(search) ? ( // Conditional rendering here
-                <View style={styles.eventContainer}>
-                  <TouchableOpacity
-                    onPress={() => {
-                      setTimeout(() => {
-                        navigation.navigate("EventPage", {
-                          id: 5,
-                          data: item,
-                        });
-                      }, 500);
-                    }}
-                    style={styles.touchableContainer}
-                  >
-                    <View style={styles.eventNameContainer}>
-                      <Text style={styles.eventNameText}>{item.eventName}</Text>
-                    </View>
-                    <View style={styles.timeContainer}>
-                      <Text>{item.time}</Text>
-                      <Image
-                        style={styles.location}
-                        source={require("../../assets/images/placeholder.png")}
-                      />
-                      <Text style={styles.text}>{item.location}</Text>
-                    </View>
-                  </TouchableOpacity>
-                </View>
-              ) : null // Return null if the condition isn't met
+            ({ item }) => (
+              <View style={styles.eventContainer}>
+                <TouchableOpacity
+                  onPress={() => {
+                    setTimeout(() => {
+                      navigation.navigate("EventPage", {
+                        id: 5,
+                        data: item,
+                      });
+                    }, 500);
+                  }}
+                  style={styles.touchableContainer}
+                >
+                  <View style={styles.eventNameContainer}>
+                    <Text style={styles.eventNameText}>{item.eventName}</Text>
+                  </View>
+                  <View style={styles.timeContainer}>
+                    <Text>{item.time}</Text>
+                    <Image
+                      style={styles.location}
+                      source={require("../../assets/images/placeholder.png")}
+                    />
+                    <Text style={styles.text}>{item.location}</Text>
+                  </View>
+                </TouchableOpacity>
+              </View>
+            ) // Return null if the condition isn't met
           }
         />
       </View>
@@ -192,6 +211,15 @@ const Explore = () => {
   );
 };
 const styles = StyleSheet.create({
+  searchBarContainer: {
+    alignItems: "center",
+  },
+  searchBar: {
+    borderWidth: 0.5,
+    width: "90%",
+    borderRadius: 15,
+    padding: 10,
+  },
   flatListContainer: {
     marginTop: 20,
   },

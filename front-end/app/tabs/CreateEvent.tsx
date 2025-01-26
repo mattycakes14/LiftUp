@@ -53,21 +53,6 @@ const CreateEvent = () => {
     }
   };
 
-  // Event List Fetch
-  const [events, setEvents] = useState([]);
-
-  useEffect(() => {
-    // Make the GET request to fetch all events
-    const fetchEvents = async () => {
-      try {
-        const response = await axios.get("http://192.168.1.100:5000/events"); // Replace with your backend IP
-        setEvents(response.data); // Store the fetched events in the state
-      } catch (error) {
-        console.error("Error fetching events:", error);
-      }
-    };
-    fetchEvents(); // Call the fetch function on component mount
-  }, []); // Empty dependency array ensures this runs only once on mount
   console.log(events);
   return (
     <SafeAreaView>
@@ -141,6 +126,20 @@ const CreateEvent = () => {
           </ScrollView>
         </KeyboardAvoidingView>
       </TouchableWithoutFeedback>
+
+      {/* Event List */}
+      <View style={{ marginTop: 40 }}>
+        <Text style={styles.eventListTitle}>Event List</Text>
+        <ScrollView>
+          {events.map((event) => (
+            <View key={event.event_id} style={styles.eventItem}>
+              <Text style={styles.eventItemText}>
+                {event.name} - {event.date} - {event.location}
+              </Text>
+            </View>
+          ))}
+        </ScrollView>
+      </View>
     </SafeAreaView>
   );
 };
@@ -170,7 +169,7 @@ const styles = StyleSheet.create({
   },
   dateContainer: {
     marginTop: 20,
-    marginLeft: 45,
+    marginLeft: 5,
     marginRight: 60,
   },
   eventNameInput: {
@@ -182,7 +181,7 @@ const styles = StyleSheet.create({
   },
   eventNameContainer: {
     marginTop: 20,
-    marginLeft: 45,
+    marginLeft: 5,
     marginRight: 60,
   },
   eventTitleContainer: {

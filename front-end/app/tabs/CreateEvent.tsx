@@ -52,8 +52,6 @@ const CreateEvent = () => {
       alert("Error creating event.");
     }
   };
-
-  console.log(events);
   return (
     <SafeAreaView>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -126,20 +124,6 @@ const CreateEvent = () => {
           </ScrollView>
         </KeyboardAvoidingView>
       </TouchableWithoutFeedback>
-
-      {/* Event List */}
-      <View style={{ marginTop: 40 }}>
-        <Text style={styles.eventListTitle}>Event List</Text>
-        <ScrollView>
-          {events.map((event) => (
-            <View key={event.event_id} style={styles.eventItem}>
-              <Text style={styles.eventItemText}>
-                {event.name} - {event.date} - {event.location}
-              </Text>
-            </View>
-          ))}
-        </ScrollView>
-      </View>
     </SafeAreaView>
   );
 };

@@ -10,6 +10,7 @@ import {
   Image,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import ToastManager, { Toast } from "toastify-react-native";
 const LogInModal = (props) => {
   //state for password and username
   const [username, setUsername] = useState("");

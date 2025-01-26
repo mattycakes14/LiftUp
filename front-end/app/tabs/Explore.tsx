@@ -12,6 +12,7 @@ import {
 } from "react-native";
 import SearchTags from "../components/SearchTags";
 import { useNavigation } from "@react-navigation/native";
+import axios from "axios";
 
 const Explore = () => {
   //handle navigation
@@ -20,6 +21,8 @@ const Explore = () => {
   const [search, setSearch] = useState("");
   //filter search
   const [filteredData, setFilteredData] = useState(eventData);
+  //fetch data
+  const [data, setData] = useState([]);
   useEffect(() => {
     if (search === "") {
       setFilteredData(eventData);
@@ -31,6 +34,19 @@ const Explore = () => {
     }
   }, [search]);
   //sample data
+
+  //get request
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await axios.get("http://10.13.165.0:5000/events");
+        setData(data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchData();
+  }, []);
   const eventData = [
     {
       id: 1,

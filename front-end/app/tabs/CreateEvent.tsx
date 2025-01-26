@@ -12,24 +12,15 @@ import {
   ScrollView,
   TouchableOpacity,
 } from "react-native";
-import DropDownPicker from "react-native-dropdown-picker";
 
 const CreateEvent = () => {
   const [event, setEvent] = useState("");
   const [date, setDate] = useState("");
+
   const [time, setTime] = useState("");
   const [desc, setDesc] = useState("");
   const [loc, setLoc] = useState("");
 
-  const [open, setOpen] = useState(false);
-  const [value, setValue] = useState(null);
-  const [tags, setTags] = useState([
-    { label: "Food Distribution", value: "food" },
-    { label: "Clothing Drive", value: "clothing" },
-    { label: "Volunteer Signup", value: "volunteer" },
-    { label: "Medical Clinic", value: "medical" },
-    { label: "Disaster Relief", value: "relief" },
-  ]);
   return (
     <SafeAreaView style={styles.container}>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>

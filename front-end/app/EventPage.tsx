@@ -10,13 +10,13 @@ import {
 import { useRoute } from "@react-navigation/native";
 import MapView from "react-native-maps";
 import * as Location from "expo-location";
+
 const EventPage = () => {
   const route = useRoute();
-  // Retrieve passed data
   const data = route.params?.data || [];
   const location = data.location;
-
   const image = data.image;
+  console.log(location);
   const [geoloc, setGetLoc] = useState([]);
   useEffect(() => {
     const getGeocode = async () => {
@@ -30,18 +30,30 @@ const EventPage = () => {
     };
     getGeocode();
   }, [location]);
+
+  // Default location if geocode fails
+  const initialRegion = geoloc.length
+    ? {
+        latitude: geoloc[0].latitude,
+        longitude: geoloc[0].longitude,
+        latitudeDelta: 0.02,
+        longitudeDelta: 0.02,
+      }
+    : {
+        latitude: 34.147643,
+        longitude: -118.142959,
+        latitudeDelta: 0.02,
+        longitudeDelta: 0.02,
+      };
+
   return (
     <View style={styles.eventContainer}>
-      <Image
-        style={styles.eventImage}
-        source={{uri: image}}
-        alt="image"
-      />
+      <Image style={styles.eventImage} source={{ uri: image }} alt="image" />
 
       <View style={styles.eventTitleContainer}>
         <Text style={styles.eventTitle}>{data.eventName}</Text>
       </View>
-      <ScrollView>
+      <ScrollView contentContainerStyle={styles.scrollViewContent}>
         <View style={styles.timeContainer}>
           <Text style={styles.time}>🕒 {data.time}</Text>
         </View>
@@ -53,15 +65,7 @@ const EventPage = () => {
           <Text style={styles.location}>{location}</Text>
         </View>
         <View style={styles.mapViewContainer}>
-          <MapView
-            style={styles.map}
-            initialRegion={{
-              latitude: 34.147643,
-              longitude: -118.142959,
-              latitudeDelta: 0.0922,
-              longitudeDelta: 0.0421,
-            }}
-          />
+          <MapView style={styles.map} initialRegion={initialRegion} />
         </View>
         <View style={styles.descriptionTitleContainer}>
           <Text style={styles.descriptionTitle}>Description</Text>
@@ -73,13 +77,16 @@ const EventPage = () => {
     </View>
   );
 };
+
 const styles = StyleSheet.create({
   mapViewContainer: {
     margin: 10,
+    height: 250, // Set a fixed height for the map
   },
   map: {
     width: "100%",
     height: "100%",
+    borderRadius: 10,
   },
   descriptionContainer: {
     marginLeft: 20,
@@ -116,10 +123,17 @@ const styles = StyleSheet.create({
   eventTitle: {
     fontSize: 35,
   },
-  eventContainer: {},
+  eventContainer: {
+    flex: 1,
+    padding: 10,
+  },
   eventImage: {
-    width: 400,
+    width: "100%",
     height: 250,
   },
+  scrollViewContent: {
+    paddingBottom: 20, // Add padding to the bottom of the scroll view content
+  },
 });
+
 export default EventPage;

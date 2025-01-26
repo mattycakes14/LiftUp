@@ -11,8 +11,7 @@ const Profile = () => {
 
   //test
   const fetchData = async () => {
-    axios
-      .get("http://192.168.1.10:5000/users")
+    fetch("http://192.168.1.10:5000/users")
       .then((response) => {
         console.log(response.data); // Handle the user data
       })

@@ -7,13 +7,17 @@ import {
   StyleSheet,
   View,
   Image,
+  Button,
 } from "react-native";
 import SearchBar from "../components/SearchBar";
 import SearchTags from "../components/SearchTags";
-
+import { useNavigation } from "@react-navigation/native";
+import EventPage from "../eventPage";
 const Explore = () => {
+  //handle navigation
+  const navigation = useNavigation();
   //selected data
-  const [selectedData, setSelectedData] = useState([{}]);
+  const [selectedData, setSelectedData] = useState([]);
   //sample data
   const eventData = [
     {
@@ -116,7 +120,17 @@ const Explore = () => {
           data={eventData}
           renderItem={({ item }) => (
             <View style={styles.eventContainer}>
-              <TouchableOpacity style={styles.touchableContainer}>
+              <TouchableOpacity
+                onPress={() => {
+                  setTimeout(() => {
+                    navigation.navigate("EventPage", {
+                      id: 5,
+                      data: item,
+                    });
+                  }, 500);
+                }}
+                style={styles.touchableContainer}
+              >
                 <View style={styles.eventNameContainer}>
                   <Text style={styles.eventNameText}>{item.eventName}</Text>
                 </View>

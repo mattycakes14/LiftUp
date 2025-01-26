@@ -226,7 +226,7 @@ const Explore = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#eceacc",
+    backgroundColor: "#FAF9F6",
   },
   searchBarContainer: {
     alignItems: "center",
@@ -244,7 +244,7 @@ const styles = StyleSheet.create({
     margin: 5,
   },
   touchableContainer: {
-    backgroundColor: "orange",
+    backgroundColor: "#B7D8B5",
     height: 100,
   },
   eventNameContainer: {

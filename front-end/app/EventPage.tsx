@@ -8,6 +8,7 @@ import {
   ScrollView,
   FlatList,
   TouchableOpacity,
+  Touchable,
 } from "react-native";
 import { useRoute } from "@react-navigation/native";
 import MapView from "react-native-maps";
@@ -23,7 +24,9 @@ const EventPage = () => {
 
   const [lat, setLat] = useState(34.1458012);
   const [long, setLong] = useState(-118.1488888);
-  const roleList = ["Volunteer", "Donor", "impactee", "sponsor"];
+
+  const roles = ["Volunteer", "Donor", "Impactee", "Sponsor"];
+  const [selectedItem, setSelectedItem] = useState(null);
   useEffect(() => {
     const getGeocode = async () => {
       try {
@@ -60,12 +63,18 @@ const EventPage = () => {
         <View style={styles.roleContainer}>
           <Text style={styles.role}>Select Your Role</Text>
           <View style={styles.roleComponentContainer}>
-            <TouchableOpacity>
-              <Text>Test</Text>
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <Text>Test 2</Text>
-            </TouchableOpacity>
+            {roles.map((item, index) => (
+              <TouchableOpacity
+                key={index}
+                onPress={() => setSelectedItem(index)}
+                style={[
+                  styles.roleComponents,
+                  selectedItem === index && styles.dark, // Apply darkened style when selected
+                ]}
+              >
+                <Text>{item}</Text>
+              </TouchableOpacity>
+            ))}
           </View>
         </View>
         <View style={styles.locationContainer}>
@@ -102,6 +111,15 @@ const EventPage = () => {
 };
 
 const styles = StyleSheet.create({
+  dark: {
+    backgroundColor: "#4f8c32",
+  },
+  roleComponents: {
+    backgroundColor: "#95d577",
+    margin: 5,
+    padding: 5,
+    borderRadius: 5,
+  },
   roleComponentContainer: {
     flexDirection: "row",
   },

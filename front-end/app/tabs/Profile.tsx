@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { SafeAreaView, Text, Button } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import axios from "axios";
+
 const Profile = () => {
   //navigation
   const navigation = useNavigation();

@@ -24,6 +24,7 @@ const SignUpModal = (props) => {
     navigation.navigate("TabNavigator");
     props.setter(false);
   };
+
   return (
     <SafeAreaView>
       <Modal visible={props.state} transparent={true} animationType="fade">

@@ -9,8 +9,9 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
   Platform,
+  ScrollView,
 } from "react-native";
-import DateTimePicker from "@react-native-community/datetimepicker";
+
 const CreateEvent = () => {
   const [event, setEvent] = useState("");
   const [date, setDate] = useState("");
@@ -18,53 +19,61 @@ const CreateEvent = () => {
   const [desc, setDesc] = useState("");
   return (
     <SafeAreaView>
-      <View style={styles.eventTitleContainer}>
-        <Text style={styles.eventTitle}>Host an Event!</Text>
-      </View>
-      <View style={styles.eventNameContainer}>
-        <Text style={styles.eventName}>Event title:</Text>
-        <TextInput
-          placeholder="event name"
-          placeholderTextColor="gray"
-          style={styles.eventNameInput}
-          onChange={(newText) => setEvent(newText)}
-          value={event}
-        />
-      </View>
-      <View style={styles.dateContainer}>
-        <Text style={styles.dateText}>Enter a Date</Text>
-        <TextInput
-          style={styles.dateInput}
-          placeholder="mm/dd/yyyy"
-          maxLength={10}
-          onChange={(newText) => setDate(newText)}
-        />
-      </View>
-      <View style={styles.dateContainer}>
-        <Text style={styles.dateText}>Enter A Time</Text>
-        <TextInput
-          style={styles.dateInput}
-          placeholder="00:00"
-          placeholderTextColor="gray"
-          maxLength={5}
-          onChange={(newText) => setTime(newText)}
-        />
-      </View>
-      <KeyboardAvoidingView>
-        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-          <View style={styles.dateContainer}>
-            <Text style={styles.dateText}>Description for event</Text>
-            <Text></Text>
-            <TextInput
-              style={styles.descriptionInput}
-              placeholder="Give an event description!"
-              placeholderTextColor="gray"
-              multiline={true}
-              onChange={(newText) => setDesc(newText)}
-            />
-          </View>
-        </TouchableWithoutFeedback>
-      </KeyboardAvoidingView>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <KeyboardAvoidingView
+          behavior={Platform.OS === "ios" ? "padding" : "height"}
+        >
+          <ScrollView>
+            <View style={styles.eventTitleContainer}>
+              <Text style={styles.eventTitle}>Host an Event!</Text>
+            </View>
+            <View style={styles.eventNameContainer}>
+              <Text style={styles.eventName}>Event title:</Text>
+              <TextInput
+                placeholder="event name"
+                placeholderTextColor="gray"
+                style={styles.eventNameInput}
+                onChange={(newText) => setEvent(newText)}
+                value={event}
+              />
+            </View>
+            <View style={styles.dateContainer}>
+              <Text style={styles.dateText}>Enter a Date</Text>
+              <TextInput
+                style={styles.dateInput}
+                placeholder="mm/dd/yyyy"
+                placeholderTextColor="gray"
+                maxLength={10}
+                onChange={(newText) => setDate(newText)}
+              />
+            </View>
+            <View style={styles.dateContainer}>
+              <Text style={styles.dateText}>Enter A Time</Text>
+              <TextInput
+                style={styles.dateInput}
+                placeholder="00:00"
+                placeholderTextColor="gray"
+                maxLength={5}
+                onChange={(newText) => setTime(newText)}
+              />
+            </View>
+            <View style={styles.dateContainer}>
+              <Text style={styles.dateText}>Description for event</Text>
+              <Text></Text>
+              <TextInput
+                style={styles.descriptionInput}
+                placeholder="Give an event description!"
+                placeholderTextColor="gray"
+                multiline={true}
+                onChange={(newText) => setDesc(newText)}
+              />
+            </View>
+            <View>
+              <Text>Select tags</Text>
+            </View>
+          </ScrollView>
+        </KeyboardAvoidingView>
+      </TouchableWithoutFeedback>
     </SafeAreaView>
   );
 };

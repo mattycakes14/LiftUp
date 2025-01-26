@@ -34,7 +34,7 @@ const EventPage = () => {
     <View style={styles.eventContainer}>
       <Image
         style={styles.eventImage}
-        source={require(`../assets/images/foodDistribution.jpg`)}
+        source={{uri: image}}
         alt="image"
       />
 

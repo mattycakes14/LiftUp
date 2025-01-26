@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { useRoute } from "@react-navigation/native";
 import MapView from "react-native-maps";
-import * as Location from "expo-location";
+import axios from "axios";
 
 const EventPage = () => {
   const route = useRoute();
@@ -17,34 +17,29 @@ const EventPage = () => {
   const location = data.location;
   const image = data.image;
   console.log(location);
-  const [geoloc, setGetLoc] = useState([]);
+  const [lat, setLat] = useState(34.1458012);
+  const [long, setLong] = useState(-118.1488888);
   useEffect(() => {
     const getGeocode = async () => {
       try {
-        const geoCoded = await Location.geocodeAsync(location);
-        setGetLoc(geoCoded);
-        console.log(geoCoded);
+        const response = await axios.get(
+          `https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=AIzaSyAQIh2hPONgq_sqSJNzr4fDjGiTNsczkxs`
+        );
+        if (response.data.results && response.data.results.length > 0) {
+          const location = response.data.results[0];
+          console.log(location.geometry.location.lat);
+          console.log(location.geometry.location.lng);
+          setLat(location.geometry.location.lat);
+          setLong(location.geometry.location.lng);
+        } else {
+          console.log("No results found");
+        }
       } catch (err) {
         console.log(err);
       }
     };
     getGeocode();
   }, [location]);
-
-  // Default location if geocode fails
-  const initialRegion = geoloc.length
-    ? {
-        latitude: geoloc[0].latitude,
-        longitude: geoloc[0].longitude,
-        latitudeDelta: 0.02,
-        longitudeDelta: 0.02,
-      }
-    : {
-        latitude: 34.147643,
-        longitude: -118.142959,
-        latitudeDelta: 0.02,
-        longitudeDelta: 0.02,
-      };
 
   return (
     <View style={styles.eventContainer}>
@@ -65,7 +60,19 @@ const EventPage = () => {
           <Text style={styles.location}>{location}</Text>
         </View>
         <View style={styles.mapViewContainer}>
-          <MapView style={styles.map} initialRegion={initialRegion} />
+          <MapView
+            style={styles.map}
+            initialRegion={{
+              latitude: lat,
+              longitude: long,
+              longitudeDelta: 0.02,
+              latitudeDelta: 0.02,
+            }}
+            scrollEnabled={false} // Disable scrolling
+            zoomEnabled={false} // Disable zooming
+            rotateEnabled={false} // Disable rotating
+            pitchEnabled={false} // Disable tilting
+          />
         </View>
         <View style={styles.descriptionTitleContainer}>
           <Text style={styles.descriptionTitle}>Description</Text>

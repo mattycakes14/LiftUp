@@ -33,7 +33,7 @@ const EventPage = () => {
   //     const getGeocode = async () => {
   //       try {
   //         const response = await axios.get(
-  //           `https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=AIzaSyAQIh2hPONgq_sqSJNzr4fDjGiTNsczkxs`
+  //           `https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=API_Key
   //         );
   //         if (response.data.results && response.data.results.length > 0) {
   //           const location = response.data.results[0];

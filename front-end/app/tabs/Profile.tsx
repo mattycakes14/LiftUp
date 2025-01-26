@@ -1,5 +1,5 @@
 import React from "react";
-import { SafeAreaView, View, Text, Image, Button, StyleSheet } from "react-native";
+import { SafeAreaView, View, Text, Image, Button, StyleSheet, TouchableOpacity} from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 const Profile = () => {
@@ -24,7 +24,9 @@ const Profile = () => {
           style={styles.profilePicture}
         />
         <Text style={styles.username}>Username</Text>
-        <Button title="Verify" onPress={handleVerify} />
+        <TouchableOpacity onPress={handleVerify} style={styles.greenContainer}>
+                <Text style={styles.verifyText}>Verify</Text>
+              </TouchableOpacity>
       </View>
 
       {/* Stats Section */}
@@ -39,7 +41,9 @@ const Profile = () => {
 
       {/* Logout Button */}
       <View style={styles.logoutContainer}>
-        <Button title="Logout" onPress={handleLogout} />
+        <TouchableOpacity onPress={handleLogout} style={styles.redContainer}>
+                <Text style={styles.verifyText}>Logout</Text>
+              </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
@@ -80,6 +84,31 @@ const styles = StyleSheet.create({
   logoutContainer: {
     marginTop: 24,
   },
+  greenContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 10,
+    backgroundColor: "green",
+    padding: 20,
+    marginLeft: 100,
+    marginRight: 100,
+    borderRadius: 15,
+  },
+  redContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 10,
+    backgroundColor: "red",
+    padding: 20,
+    marginLeft: 100,
+    marginRight: 100,
+    borderRadius: 15,
+  },
+  verifyText: { color: "white" },
+  descriptionInput: {
+    borderWidth: 0.5,
+    height: 140,
+  }
 });
 
 export default Profile;

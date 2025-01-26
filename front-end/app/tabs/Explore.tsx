@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   SafeAreaView,
   Text,
@@ -12,6 +12,8 @@ import SearchBar from "../components/SearchBar";
 import SearchTags from "../components/SearchTags";
 
 const Explore = () => {
+  //selected data
+  const [selectedData, setSelectedData] = useState([{}]);
   //sample data
   const eventData = [
     {
@@ -105,7 +107,6 @@ const Explore = () => {
       location: "Pasadena",
     },
   ];
-
   return (
     <SafeAreaView>
       <SearchBar />

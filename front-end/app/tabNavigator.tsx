@@ -18,7 +18,7 @@ const TabNavigator = () => {
           title: "",
           tabBarIcon: ({ size, color }) => (
             <Ionicons
-              name={"travel-explore"}
+              name={"earth-outline"}
               color={color}
               size={size}
             ></Ionicons>
@@ -28,12 +28,32 @@ const TabNavigator = () => {
       <Tab.Screen
         name="CreateEvent"
         component={CreateEvent}
-        options={{ headerShown: false }}
+        options={{
+          headerShown: false,
+          title: "",
+          tabBarIcon: ({ size, color }) => (
+            <Ionicons
+              name={"calendar-outline"}
+              color={color}
+              size={size}
+            ></Ionicons>
+          ),
+        }}
       />
       <Tab.Screen
         name="Profile"
         component={Profile}
-        options={{ headerShown: false }}
+        options={{
+          headerShown: false,
+          title: "",
+          tabBarIcon: ({ size, color }) => (
+            <Ionicons
+              name={"person-outline"}
+              color={color}
+              size={size}
+            ></Ionicons>
+          ),
+        }}
       />
     </Tab.Navigator>
   );

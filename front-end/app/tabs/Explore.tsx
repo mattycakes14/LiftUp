@@ -59,6 +59,8 @@ const Explore = () => {
         "Join us for a food distribution event to help those in need in Pasadena. Free meals and groceries will be provided to the community.",
       image:
         "https://img.freepik.com/free-photo/close-up-volunteers-collecting-food_23-2149182026.jpg?semt=ais_hybrid",
+      longitude: 20,
+      latitude: 40,
     },
     {
       id: 2,

@@ -6,6 +6,8 @@ import {
   Image,
   StyleSheet,
   ScrollView,
+  FlatList,
+  TouchableOpacity,
 } from "react-native";
 import { useRoute } from "@react-navigation/native";
 import MapView from "react-native-maps";
@@ -16,9 +18,12 @@ const EventPage = () => {
   const data = route.params?.data || [];
   const location = data.location;
   const image = data.image;
+
   console.log(location);
+
   const [lat, setLat] = useState(34.1458012);
   const [long, setLong] = useState(-118.1488888);
+  const roleList = ["Volunteer", "Donor", "impactee", "sponsor"];
   useEffect(() => {
     const getGeocode = async () => {
       try {
@@ -51,6 +56,17 @@ const EventPage = () => {
       <ScrollView contentContainerStyle={styles.scrollViewContent}>
         <View style={styles.timeContainer}>
           <Text style={styles.time}>🕒 {data.time}</Text>
+        </View>
+        <View style={styles.roleContainer}>
+          <Text style={styles.role}>Select Your Role</Text>
+          <View style={styles.roleComponentContainer}>
+            <TouchableOpacity>
+              <Text>Test</Text>
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <Text>Test 2</Text>
+            </TouchableOpacity>
+          </View>
         </View>
         <View style={styles.locationContainer}>
           <Image
@@ -86,6 +102,14 @@ const EventPage = () => {
 };
 
 const styles = StyleSheet.create({
+  roleComponentContainer: {
+    flexDirection: "row",
+  },
+  roleContainer: {
+    marginTop: 20,
+    marginLeft: 10,
+  },
+  role: { fontSize: 20 },
   mapViewContainer: {
     margin: 10,
     height: 250, // Set a fixed height for the map

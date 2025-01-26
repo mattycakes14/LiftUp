@@ -244,7 +244,7 @@ const styles = StyleSheet.create({
     margin: 5,
   },
   touchableContainer: {
-    backgroundColor: "#f1eaac",
+    backgroundColor: "orange",
     height: 100,
   },
   eventNameContainer: {
@@ -252,7 +252,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   eventNameText: {
-    color: "white",
+    color: "black",
   },
   timeContainer: {
     flex: 1,

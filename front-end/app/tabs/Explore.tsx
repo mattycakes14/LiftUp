@@ -59,8 +59,8 @@ const Explore = () => {
         "Join us for a food distribution event to help those in need in Pasadena. Free meals and groceries will be provided to the community.",
       image:
         "https://img.freepik.com/free-photo/close-up-volunteers-collecting-food_23-2149182026.jpg?semt=ais_hybrid",
-      longitude: 20,
-      latitude: 40,
+      longitude: -118.131943,
+      latitude: 34.156113,
     },
     {
       id: 2,
@@ -71,6 +71,8 @@ const Explore = () => {
         "Providing temporary housing for individuals affected by the disaster. We will assist in finding safe and secure shelter options.",
       image:
         "https://media.istockphoto.com/id/1366977484/photo/portrait-of-a-depressed-man.jpg?s=612x612&w=0&k=20&c=wpkOgZCe93l0JsZphBPMuBOqnvd_yCIlrFQyxWsouz0=",
+      longitude: -118.03534,
+      latitude: 34.13973,
     },
     {
       id: 3,
@@ -81,6 +83,8 @@ const Explore = () => {
         "Sign up to volunteer and make a difference in your community. We need your help to support various recovery efforts in Glendale.",
       image:
         "https://media.istockphoto.com/id/1199706305/photo/friends-linking-arms-in-unity.jpg?s=612x612&w=0&k=20&c=sOHOOdPG5hcNdD9BWC5vzRvRE_wS43usvWGaJLCUhu8=",
+      longitude: -118.255074,
+      latitude: 34.142509,  
     },
     {
       id: 4,
@@ -91,6 +95,8 @@ const Explore = () => {
         "Emergency shelter assistance is available to those who have lost their homes. We will provide temporary housing, food, and supplies.",
       image:
         "https://thumbs.dreamstime.com/b/large-emergency-shelter-rows-beds-dimly-lit-prepared-flood-victims-large-emergency-shelter-rows-beds-dimly-lit-335389918.jpg",
+      longitude: -117.99895,
+      latitude: 34.14806,
     },
     {
       id: 5,
@@ -101,6 +107,8 @@ const Explore = () => {
         "A clothing and essentials drive to collect items such as clothes, hygiene products, and toiletries for those in need in Burbank.",
       image:
         "https://media.istockphoto.com/id/1314806165/photo/girl-puts-in-a-box-with-donations-items-volunteering.jpg?s=612x612&w=0&k=20&c=AUKJs9FLjgSn8WVZJCD1H_mSLslMikwQbq1I_qnP8iA=",
+      longitude: -118.30897,
+      latitude: 34.18084,
     },
     {
       id: 6,
@@ -111,6 +119,8 @@ const Explore = () => {
         "A free medical clinic offering basic health services to those affected by the disaster in Malibu. Doctors, nurses, and specialists will be available.",
       image:
         "https://st3.depositphotos.com/1643295/18245/i/450/depositphotos_182459440-stock-photo-portrait-confident-general-practitioner-looking.jpg",
+      longitude: -118.81009,
+      latitude: 34.00501,
     },
     {
       id: 7,
@@ -120,6 +130,8 @@ const Explore = () => {
       description:
         "Join us for a fundraiser to support disaster relief efforts. All proceeds will go towards helping affected families and communities.",
       image: "https://images.pexels.com/photos/942560/pexels-photo-942560.jpeg",
+      longitude: -118.49119,
+      latitude: 34.01945,
     },
     {
       id: 8,
@@ -130,6 +142,8 @@ const Explore = () => {
         "Distribute food and water to families in need in Westlake Village. Volunteers are welcome to help with organizing and distributing supplies.",
       image:
         "https://media.istockphoto.com/id/947503292/photo/team-of-volunteers-sorts-goods-at-food-bank.jpg?s=612x612&w=0&k=20&c=La7gP_nzdtBCvQzkeazqBI6z6xwI06--OrUMqPmShFo=",
+      longitude: -118.80565,
+      latitude: 34.14584,
     },
     {
       id: 9,
@@ -140,6 +154,8 @@ const Explore = () => {
         "Participate in a local cleanup effort to restore Simi Valley's public spaces. Volunteers will help clean parks, streets, and other areas.",
       image:
         "https://images.stockcake.com/public/b/e/f/bef7743b-d491-4f8b-be6f-6973c8574cc1_large/community-cleanup-effort-stockcake.jpg",
+      longitude: -118.78148,
+      latitude: 34.26945,
     },
     {
       id: 10,
@@ -150,6 +166,8 @@ const Explore = () => {
         "Offering relief services and care for pets affected by the disaster. We will provide food, shelter, and medical assistance for animals.",
       image:
         "https://images.unsplash.com/photo-1581888227599-779811939961?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZG9nJTIwY2FyZXxlbnwwfHwwfHx8MA%3D%3D",
+      longitude: -118.63842,
+      latitude: 34.15778,
     },
     {
       id: 11,
@@ -160,6 +178,8 @@ const Explore = () => {
         "Offering psychological support sessions for individuals affected by the disaster. Professional counselors will be available for mental health assistance.",
       image:
         "https://media.istockphoto.com/id/1389444855/photo/shot-of-an-attractive-young-woman-sitting-and-talking-to-her-psychologist-during-a.jpg?s=612x612&w=0&k=20&c=LpV9HmdD0_Udg4YlttvwoJyLZWJThxXq-IJKeiy3zbs=",
+      longitude: -118.54259,
+      latitude: 34.39166,
     },
     {
       id: 12,
@@ -170,6 +190,8 @@ const Explore = () => {
         "Attend a disaster preparedness workshop to learn how to stay safe and plan for emergencies. Topics include evacuation plans, first aid, and survival skills.",
       image:
         "https://media.istockphoto.com/id/176990809/photo/hand-completing-emergency-preparation-list-by-equipment.jpg?s=612x612&w=0&k=20&c=z9cVokH3g8b4fBkmUxCY9a-niTtgyImA9jq3m6Hckl4=",
+      longitude: -118.81009,
+      latitude: 34.00501,
     },
     {
       id: 13,
@@ -180,6 +202,8 @@ const Explore = () => {
         "Volunteer in the community rebuilding project to help restore homes and public spaces in Santa Monica. Join us to make a difference.",
       image:
         "https://media.istockphoto.com/id/1440404344/photo/group-of-people-volunteering-to-build-a-house.jpg?s=612x612&w=0&k=20&c=Ua-7ttazgq6plYC1y-jLhFd2tGHzzPxGiSD8-_c3Qzs=",
+      longitude: -118.49119,
+      latitude: 34.01945,
     },
     {
       id: 14,
@@ -190,6 +214,8 @@ const Explore = () => {
         "Drop off your donations of clothing, food, and essentials at designated locations in Pasadena. Your contributions will help those in need.",
       image:
         "https://static.vecteezy.com/system/resources/previews/006/425/235/non_2x/holding-clothing-donation-box-with-used-clothes-and-doll-at-home-to-support-help-for-poor-people-in-the-world-free-photo.jpg",
+      longitude: 34.156113,
+      latitude: -118.131943,
     },
   ];
 

@@ -1,5 +1,13 @@
 import React from "react";
-import { SafeAreaView, View, Text, Image, Button, StyleSheet, TouchableOpacity} from "react-native";
+import {
+  SafeAreaView,
+  View,
+  Text,
+  Image,
+  Button,
+  StyleSheet,
+  TouchableOpacity,
+} from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 const Profile = () => {
@@ -20,13 +28,15 @@ const Profile = () => {
       {/* Profile Section */}
       <View style={styles.profileContainer}>
         <Image
-          source={{ uri: "https://static.vecteezy.com/system/resources/previews/020/911/740/non_2x/user-profile-icon-profile-avatar-user-icon-male-icon-face-icon-profile-icon-free-png.png" }}
+          source={{
+            uri: "https://static.vecteezy.com/system/resources/previews/020/911/740/non_2x/user-profile-icon-profile-avatar-user-icon-male-icon-face-icon-profile-icon-free-png.png",
+          }}
           style={styles.profilePicture}
         />
         <Text style={styles.username}>Username</Text>
         <TouchableOpacity onPress={handleVerify} style={styles.greenContainer}>
-                <Text style={styles.verifyText}>Verify</Text>
-              </TouchableOpacity>
+          <Text style={styles.verifyText}>Verify</Text>
+        </TouchableOpacity>
       </View>
 
       {/* Stats Section */}
@@ -38,12 +48,10 @@ const Profile = () => {
           Events Attended: <Text style={styles.bold}>15</Text>
         </Text>
       </View>
-
-      {/* Logout Button */}
       <View style={styles.logoutContainer}>
         <TouchableOpacity onPress={handleLogout} style={styles.redContainer}>
-                <Text style={styles.verifyText}>Logout</Text>
-              </TouchableOpacity>
+          <Text style={styles.verifyText}>Logout</Text>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
@@ -81,9 +89,7 @@ const styles = StyleSheet.create({
   bold: {
     fontWeight: "bold",
   },
-  logoutContainer: {
-    marginTop: 24,
-  },
+  logoutContainer: {},
   greenContainer: {
     justifyContent: "center",
     alignItems: "center",
@@ -108,7 +114,7 @@ const styles = StyleSheet.create({
   descriptionInput: {
     borderWidth: 0.5,
     height: 140,
-  }
+  },
 });
 
 export default Profile;

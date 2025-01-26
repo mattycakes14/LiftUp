@@ -10,7 +10,7 @@ import {
   TextInput,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-
+import ToastManager, { Toast } from "toastify-react-native";
 const SignUpModal = (props) => {
   //navigation to tabnav
   const navigation = useNavigation();
@@ -18,15 +18,24 @@ const SignUpModal = (props) => {
   //state for password and username
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  //toast notification for changes
+  const showErrorToast = () => {
+    Toast.error("Changes haven't been saved! ⚠️");
+  };
+  const showSuccessToast = () => {
+    Toast.success("Changes have been saved! 🎉");
+  };
 
   //handle successful Sign Up
   const handleSignUp = () => {
+    showSuccessToast();
     navigation.navigate("TabNavigator");
     props.setter(false);
   };
 
   return (
     <SafeAreaView>
+      <ToastManager width={350} />
       <Modal visible={props.state} transparent={true} animationType="fade">
         <View style={styles.modalContainer}>
           <View style={styles.modalOverlay}>

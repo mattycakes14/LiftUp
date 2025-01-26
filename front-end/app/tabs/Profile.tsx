@@ -4,9 +4,8 @@ import {
   View,
   Text,
   Image,
-  Button,
-  StyleSheet,
   TouchableOpacity,
+  StyleSheet,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
@@ -39,6 +38,7 @@ const Profile = () => {
         </TouchableOpacity>
       </View>
 
+      {/* Stats Section */}
       <View style={styles.statsContainer}>
         <Text style={styles.eventStatsText}>
           Hours Volunteered: <Text style={styles.bold}>120</Text>
@@ -46,7 +46,11 @@ const Profile = () => {
         <Text style={styles.eventStatsText}>
           Events Attended: <Text style={styles.bold}>15</Text>
         </Text>
+        <Text style={styles.eventStatsText}>
+          Events Hosted: <Text style={styles.bold}>3</Text>
+        </Text>
       </View>
+
       <View style={styles.logoutContainer}>
         <TouchableOpacity onPress={handleLogout} style={styles.redContainer}>
           <Text style={styles.verifyText}>Logout</Text>
@@ -67,56 +71,56 @@ const styles = StyleSheet.create({
     marginBottom: 24,
   },
   profilePicture: {
-    width: 200,
-    height: 200,
-    borderRadius: 50,
+    width: 150,
+    height: 150,
+    borderRadius: 75,
     marginBottom: 16,
   },
   username: {
-    fontSize: 20,
+    fontSize: 22,
     fontWeight: "600",
     marginBottom: 8,
   },
   statsContainer: {
     marginVertical: 16,
     paddingHorizontal: 16,
-  },
-  statText: {
-    fontSize: 16,
-    marginBottom: 8,
+    justifyContent: "center",
+    alignItems: "center",
   },
   eventStatsText: {
-    fontSize: 21,
+    fontSize: 18,
     marginBottom: 8,
   },
   bold: {
     fontWeight: "bold",
   },
-  logoutContainer: {},
   greenContainer: {
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 10,
     backgroundColor: "green",
-    padding: 20,
-    marginLeft: 100,
-    marginRight: 100,
+    paddingVertical: 12,
+    paddingHorizontal: 24,
+    marginTop: 10,
     borderRadius: 15,
+    width: "80%", // Dynamic width
   },
   redContainer: {
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 180,
     backgroundColor: "red",
-    padding: 20,
-    marginLeft: 100,
-    marginRight: 100,
+    paddingVertical: 12,
+    paddingHorizontal: 24,
+    marginTop: 200,
     borderRadius: 15,
+    width: "80%", // Dynamic width
   },
-  verifyText: { color: "white" },
-  descriptionInput: {
-    borderWidth: 0.5,
-    height: 140,
+  verifyText: {
+    color: "white",
+    fontSize: 18,
+  },
+  logoutContainer: {
+    alignItems: "center",
+    marginTop: 30, // Adjusting spacing
   },
 });
 

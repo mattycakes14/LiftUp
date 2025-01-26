@@ -26,6 +26,7 @@ const EventPage = () => {
   const [lat, setLat] = useState(data.latitude);
   const [long, setLong] = useState(data.longitude);
 
+  const [isAttending, setAttending] = useState(false);
   const roles = ["Volunteer", "Donor", "Impactee", "Sponsor"];
   const [selectedItem, setSelectedItem] = useState(null);
   //   useEffect(() => {
@@ -106,12 +107,36 @@ const EventPage = () => {
         <View style={styles.descriptionContainer}>
           <Text style={styles.description}>{data.description}</Text>
         </View>
+
+        <TouchableOpacity
+          onPress={() => setAttending(true)}
+          style={styles.attendContainer}
+        >
+          {isAttending ? (
+            <Text style={styles.attendText}>You're In!</Text>
+          ) : (
+            <Text style={styles.attendText}>Attend Event</Text>
+          )}
+        </TouchableOpacity>
       </ScrollView>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  attendText: {
+    color: "white",
+  },
+  attendContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 40,
+    backgroundColor: "green",
+    padding: 20,
+    marginLeft: 100,
+    marginRight: 100,
+    borderRadius: 15,
+  },
   dark: {
     backgroundColor: "#4f8c32",
   },

@@ -19,6 +19,7 @@ const CreateEvent = () => {
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [desc, setDesc] = useState("");
+  const [loc, setLoc] = useState("");
 
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(null);
@@ -40,7 +41,7 @@ const CreateEvent = () => {
               <Text style={styles.eventTitle}>Host an Event!</Text>
             </View>
             <View style={styles.eventNameContainer}>
-              <Text style={styles.eventName}>Event title:</Text>
+              <Text style={styles.eventName}>Event Title:</Text>
               <TextInput
                 placeholder="event name"
                 placeholderTextColor="gray"
@@ -50,7 +51,16 @@ const CreateEvent = () => {
               />
             </View>
             <View style={styles.dateContainer}>
-              <Text style={styles.dateText}>Enter a Date</Text>
+              <Text style={styles.dateText}>Enter Location:</Text>
+              <TextInput
+                style={styles.dateInput}
+                placeholder="location"
+                placeholderTextColor="gray"
+                onChange={(newText) => setLoc(newText)}
+              />
+            </View>
+            <View style={styles.dateContainer}>
+              <Text style={styles.dateText}>Enter Date:</Text>
               <TextInput
                 style={styles.dateInput}
                 placeholder="mm/dd/yyyy"
@@ -60,7 +70,7 @@ const CreateEvent = () => {
               />
             </View>
             <View style={styles.dateContainer}>
-              <Text style={styles.dateText}>Enter A Time</Text>
+              <Text style={styles.dateText}>Enter Time:</Text>
               <TextInput
                 style={styles.dateInput}
                 placeholder="00:00"
@@ -70,7 +80,7 @@ const CreateEvent = () => {
               />
             </View>
             <View style={styles.dateContainer}>
-              <Text style={styles.dateText}>Description for event</Text>
+              <Text style={styles.dateText}>Event Description:</Text>
               <Text></Text>
               <TextInput
                 style={styles.descriptionInput}

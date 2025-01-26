@@ -10,13 +10,25 @@ import {
   Keyboard,
   Platform,
   ScrollView,
+  TouchableOpacity,
 } from "react-native";
+import DropDownPicker from "react-native-dropdown-picker";
 
 const CreateEvent = () => {
   const [event, setEvent] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [desc, setDesc] = useState("");
+
+  const [open, setOpen] = useState(false);
+  const [value, setValue] = useState(null);
+  const [tags, setTags] = useState([
+    { label: "Food Distribution", value: "food" },
+    { label: "Clothing Drive", value: "clothing" },
+    { label: "Volunteer Signup", value: "volunteer" },
+    { label: "Medical Clinic", value: "medical" },
+    { label: "Disaster Relief", value: "relief" },
+  ]);
   return (
     <SafeAreaView>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -68,16 +80,27 @@ const CreateEvent = () => {
                 onChange={(newText) => setDesc(newText)}
               />
             </View>
-            <View>
-              <Text>Select tags</Text>
-            </View>
           </ScrollView>
         </KeyboardAvoidingView>
       </TouchableWithoutFeedback>
+      <TouchableOpacity style={styles.submitContainer}>
+        <Text style={styles.submitText}>Create Event</Text>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 };
 const styles = StyleSheet.create({
+  submitContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 40,
+    backgroundColor: "green",
+    padding: 20,
+    marginLeft: 100,
+    marginRight: 100,
+    borderRadius: 15,
+  },
+  submitText: { color: "white" },
   descriptionInput: {
     borderWidth: 0.5,
     height: 140,

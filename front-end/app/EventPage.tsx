@@ -37,9 +37,11 @@ const EventPage = () => {
         source={require(`../assets/images/foodDistribution.jpg`)}
         alt="image"
       />
+
       <View style={styles.eventTitleContainer}>
         <Text style={styles.eventTitle}>{data.eventName}</Text>
       </View>
+
       <View style={styles.timeContainer}>
         <Text style={styles.time}>🕒 {data.time}</Text>
       </View>

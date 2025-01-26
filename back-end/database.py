@@ -50,6 +50,10 @@ def get_events():
     c.execute("SELECT * FROM Event")
     return c.fetchall()
 
+# Commit the connection
+def commit_connection():
+    conn.commit()
+
 # Close the connection
 def close_connection():
     conn.close()
@@ -76,4 +80,5 @@ if __name__ == "__main__":
     fire_awareness = Event(1, "Fire Awareness", 'flyer.jpg', "2021-10-10", 'LA', 'Help stop the fire!', [John])
     add_event(fire_awareness)
     print_events()
+    commit_connection()
     close_connection()

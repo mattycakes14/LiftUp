@@ -31,7 +31,7 @@ const CreateEvent = () => {
     { label: "Disaster Relief", value: "relief" },
   ]);
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.container}>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <KeyboardAvoidingView
           behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -46,7 +46,7 @@ const CreateEvent = () => {
                 placeholder="event name"
                 placeholderTextColor="gray"
                 style={styles.eventNameInput}
-                onChange={(newText) => setEvent(newText)}
+                onChangeText={(newText) => setEvent(newText)}
                 value={event}
               />
             </View>
@@ -56,7 +56,7 @@ const CreateEvent = () => {
                 style={styles.dateInput}
                 placeholder="location"
                 placeholderTextColor="gray"
-                onChange={(newText) => setLoc(newText)}
+                onChangeText={(newText) => setLoc(newText)}
               />
             </View>
             <View style={styles.dateContainer}>
@@ -66,7 +66,7 @@ const CreateEvent = () => {
                 placeholder="mm/dd/yyyy"
                 placeholderTextColor="gray"
                 maxLength={10}
-                onChange={(newText) => setDate(newText)}
+                onChangeText={(newText) => setDate(newText)}
               />
             </View>
             <View style={styles.dateContainer}>
@@ -76,7 +76,7 @@ const CreateEvent = () => {
                 placeholder="00:00"
                 placeholderTextColor="gray"
                 maxLength={5}
-                onChange={(newText) => setTime(newText)}
+                onChangeText={(newText) => setTime(newText)}
               />
             </View>
             <View style={styles.dateContainer}>
@@ -87,7 +87,7 @@ const CreateEvent = () => {
                 placeholder="Give an event description!"
                 placeholderTextColor="gray"
                 multiline={true}
-                onChange={(newText) => setDesc(newText)}
+                onChangeTextText={(newText) => setDesc(newText)}
               />
             </View>
             <TouchableOpacity style={styles.submitContainer}>
@@ -100,6 +100,7 @@ const CreateEvent = () => {
   );
 };
 const styles = StyleSheet.create({
+  container: { flex: 1, backgroundColor: "#f9f9f2" },
   submitContainer: {
     justifyContent: "center",
     alignItems: "center",

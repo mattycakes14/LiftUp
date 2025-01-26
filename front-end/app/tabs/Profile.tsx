@@ -39,7 +39,6 @@ const Profile = () => {
         </TouchableOpacity>
       </View>
 
-      {/* Stats Section */}
       <View style={styles.statsContainer}>
         <Text style={styles.eventStatsText}>
           Hours Volunteered: <Text style={styles.bold}>120</Text>

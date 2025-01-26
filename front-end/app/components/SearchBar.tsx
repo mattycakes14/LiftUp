@@ -3,7 +3,11 @@ import { Text, View, TextInput, StyleSheet } from "react-native";
 const SearchBar = () => {
   return (
     <View style={styles.searchBarContainer}>
-      <TextInput style={styles.searchBar}></TextInput>
+      <TextInput
+        placeholder="Search for an event"
+        placeholderTextColor="gray"
+        style={styles.searchBar}
+      ></TextInput>
     </View>
   );
 };

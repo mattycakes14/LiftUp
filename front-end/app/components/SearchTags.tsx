@@ -9,15 +9,20 @@ import {
 const SearchTags = () => {
   const sampleTags = ["Distribution Centers", "Volunteer", "temporary housing"];
   return (
-    <FlatList
-      data={sampleTags}
-      horizontal={true}
-      renderItem={({ item }) => (
-        <TouchableOpacity style={styles.searchTagContainer}>
-          <Text style={styles.searchText}>{item}</Text>
-        </TouchableOpacity>
-      )}
-    ></FlatList>
+    <View>
+      <View style={styles.searchByFilterContainer}>
+        <Text>Search by filter</Text>
+      </View>
+      <FlatList
+        data={sampleTags}
+        horizontal={true}
+        renderItem={({ item }) => (
+          <TouchableOpacity style={styles.searchTagContainer}>
+            <Text style={styles.searchText}>{item}</Text>
+          </TouchableOpacity>
+        )}
+      ></FlatList>
+    </View>
   );
 };
 const styles = StyleSheet.create({
@@ -29,6 +34,10 @@ const styles = StyleSheet.create({
   },
   searchText: {
     color: "white",
+  },
+  searchByFilterContainer: {
+    marginLeft: 10,
+    marginTop: 10,
   },
 });
 export default SearchTags;

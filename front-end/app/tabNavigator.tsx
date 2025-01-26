@@ -13,7 +13,17 @@ const TabNavigator = () => {
       <Tab.Screen
         name="Explore"
         component={Explore}
-        options={{ headerShown: false }}
+        options={{
+          headerShown: false,
+          title: "",
+          tabBarIcon: ({ size, color }) => (
+            <Ionicons
+              name={"travel-explore"}
+              color={color}
+              size={size}
+            ></Ionicons>
+          ),
+        }}
       />
       <Tab.Screen
         name="CreateEvent"

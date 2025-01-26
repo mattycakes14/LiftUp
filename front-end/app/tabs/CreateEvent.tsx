@@ -1,10 +1,10 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { SafeAreaView, Text } from "react-native";
 const CreateEvent = () => {
   return (
-    <View>
+    <SafeAreaView>
       <Text>This is the Create Events Tab</Text>
-    </View>
+    </SafeAreaView>
   );
 };
 

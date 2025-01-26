@@ -8,7 +8,6 @@ import {
   Image,
   TouchableOpacity,
 } from "react-native";
-import { useNavigation } from "@react-navigation/native";
 import SignUpModal from "../modals/SignUpModal";
 import LogInModal from "../modals/LogInModal";
 
@@ -59,7 +58,7 @@ const styles = StyleSheet.create({
   },
   logo: {
     width: 220,
-    height: 450,
+    height: 460,
   },
   logInButton: {
     backgroundColor: "green",

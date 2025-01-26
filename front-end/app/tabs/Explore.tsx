@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   StyleSheet,
   View,
+  Image,
 } from "react-native";
 import SearchBar from "../components/SearchBar";
 import SearchTags from "../components/SearchTags";
@@ -13,22 +14,98 @@ import SearchTags from "../components/SearchTags";
 const Explore = () => {
   //sample data
   const eventData = [
-    { id: 1, eventName: "Food Distribution Service", time: "2:00 PM" },
-    { id: 2, eventName: "Temporary Housing Availability", time: "10:00 AM" },
-    { id: 3, eventName: "Community Volunteer Sign-Up", time: "12:00 PM" },
-    { id: 4, eventName: "Emergency Shelter Assistance", time: "8:00 PM" },
-    { id: 5, eventName: "Clothing and Essentials Drive", time: "3:00 PM" },
-    { id: 6, eventName: "Free Medical Clinic", time: "9:00 AM" },
-    { id: 7, eventName: "Disaster Relief Fundraiser", time: "6:00 PM" },
-    { id: 8, eventName: "Food and Water Distribution", time: "1:00 PM" },
-    { id: 9, eventName: "Local Cleanup Effort", time: "5:00 PM" },
-    { id: 10, eventName: "Pet Relief and Care Services", time: "7:00 AM" },
-    { id: 11, eventName: "Temporary Housing Search Help", time: "4:00 PM" },
-    { id: 12, eventName: "Psychological Support Sessions", time: "11:00 AM" },
-    { id: 13, eventName: "Disaster Preparedness Workshop", time: "9:00 AM" },
-    { id: 14, eventName: "Community Rebuilding Project", time: "8:00 AM" },
-    { id: 15, eventName: "Donation Drop-off Locations", time: "10:00 AM" },
+    {
+      id: 1,
+      eventName: "Food Distribution Service",
+      time: "2:00 PM",
+      location: "Pasadena",
+    },
+    {
+      id: 2,
+      eventName: "Temporary Housing Availability",
+      time: "10:00 AM",
+      location: "Arcadia",
+    },
+    {
+      id: 3,
+      eventName: "Community Volunteer Sign-Up",
+      time: "12:00 PM",
+      location: "Glendale",
+    },
+    {
+      id: 4,
+      eventName: "Emergency Shelter Assistance",
+      time: "8:00 PM",
+      location: "Monrovia",
+    },
+    {
+      id: 5,
+      eventName: "Clothing and Essentials Drive",
+      time: "3:00 PM",
+      location: "Burbank",
+    },
+    {
+      id: 6,
+      eventName: "Free Medical Clinic",
+      time: "9:00 AM",
+      location: "Malibu",
+    },
+    {
+      id: 7,
+      eventName: "Disaster Relief Fundraiser",
+      time: "6:00 PM",
+      location: "Santa Monica",
+    },
+    {
+      id: 8,
+      eventName: "Food and Water Distribution",
+      time: "1:00 PM",
+      location: "Westlake Village",
+    },
+    {
+      id: 9,
+      eventName: "Local Cleanup Effort",
+      time: "5:00 PM",
+      location: "Simi Valley",
+    },
+    {
+      id: 10,
+      eventName: "Pet Relief and Care Services",
+      time: "7:00 AM",
+      location: "Calabasas",
+    },
+    {
+      id: 11,
+      eventName: "Temporary Housing Search Help",
+      time: "4:00 PM",
+      location: "Lancaster",
+    },
+    {
+      id: 12,
+      eventName: "Psychological Support Sessions",
+      time: "11:00 AM",
+      location: "Santa Clarita",
+    },
+    {
+      id: 13,
+      eventName: "Disaster Preparedness Workshop",
+      time: "9:00 AM",
+      location: "Malibu",
+    },
+    {
+      id: 14,
+      eventName: "Community Rebuilding Project",
+      time: "8:00 AM",
+      location: "Santa Monica",
+    },
+    {
+      id: 15,
+      eventName: "Donation Drop-off Locations",
+      time: "10:00 AM",
+      location: "Pasadena",
+    },
   ];
+
   return (
     <SafeAreaView>
       <SearchBar />
@@ -39,7 +116,17 @@ const Explore = () => {
           renderItem={({ item }) => (
             <View style={styles.eventContainer}>
               <TouchableOpacity style={styles.touchableContainer}>
-                <Text>{item.eventName}</Text>
+                <View style={styles.eventNameContainer}>
+                  <Text style={styles.eventNameText}>{item.eventName}</Text>
+                </View>
+                <View style={styles.timeContainer}>
+                  <Text>{item.time}</Text>
+                  <Image
+                    style={styles.location}
+                    source={require("../../assets/images/placeholder.png")}
+                  />
+                  <Text style={styles.text}>{item.location}</Text>
+                </View>
               </TouchableOpacity>
             </View>
           )}
@@ -56,7 +143,30 @@ const styles = StyleSheet.create({
     margin: 5,
   },
   touchableContainer: {
-    backgroundColor: "green",
+    backgroundColor: "orange",
+    height: 100,
+  },
+  eventNameContainer: {
+    marginLeft: 5,
+    marginTop: 10,
+  },
+  eventNameText: {
+    color: "white",
+  },
+  timeContainer: {
+    flex: 1,
+    flexDirection: "row",
+    position: "absolute",
+    left: 5,
+    top: 70,
+  },
+  text: {
+    marginLeft: 1,
+  },
+  location: {
+    height: 20,
+    width: 20,
+    marginLeft: 10,
   },
 });
 export default Explore;

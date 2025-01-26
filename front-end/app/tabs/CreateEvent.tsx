@@ -30,22 +30,25 @@ const CreateEvent = () => {
     }
 
     // Format the data for the backend
-    const eventData = { 
-      name: event, 
-      date: date, 
-      location: loc, 
-      description: desc, 
-      host: host 
+    const eventData = {
+      name: event,
+      date: date,
+      location: loc,
+      description: desc,
+      host: host,
     };
 
-    console.log('Sending data to backend:', eventData);  // Debug line to check data
+    console.log("Sending data to backend:", eventData); // Debug line to check data
 
     try {
-      const response = await axios.post('http://10.13.165.0:5000/events', eventData);  // Make sure the URL is correct
-      console.log('Event created:', response.data);
+      const response = await axios.post(
+        "http://10.13.165.0:5000/events",
+        eventData
+      ); // Make sure the URL is correct
+      console.log("Event created:", response.data);
       alert("Event created successfully!");
     } catch (error) {
-      console.error('Error creating event:', error);
+      console.error("Error creating event:", error);
       alert("Error creating event.");
     }
   };
@@ -57,20 +60,22 @@ const CreateEvent = () => {
     // Make the GET request to fetch all events
     const fetchEvents = async () => {
       try {
-        const response = await axios.get('http://192.168.1.100:5000/events');  // Replace with your backend IP
-        setEvents(response.data);  // Store the fetched events in the state
+        const response = await axios.get("http://192.168.1.100:5000/events"); // Replace with your backend IP
+        setEvents(response.data); // Store the fetched events in the state
       } catch (error) {
-        console.error('Error fetching events:', error);
+        console.error("Error fetching events:", error);
       }
     };
-    
-    fetchEvents();  // Call the fetch function on component mount
-  }, []);  // Empty dependency array ensures this runs only once on mount
+
+    fetchEvents(); // Call the fetch function on component mount
+  }, []); // Empty dependency array ensures this runs only once on mount
 
   return (
     <SafeAreaView>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"}>
+        <KeyboardAvoidingView
+          behavior={Platform.OS === "ios" ? "padding" : "height"}
+        >
           <ScrollView>
             <View style={styles.eventTitleContainer}>
               <Text style={styles.eventTitle}>Host an Event!</Text>
@@ -128,12 +133,15 @@ const CreateEvent = () => {
                 value={desc}
               />
             </View>
+            <TouchableOpacity
+              style={styles.submitContainer}
+              onPress={handleSubmit}
+            >
+              <Text style={styles.submitText}>Create Event</Text>
+            </TouchableOpacity>
           </ScrollView>
         </KeyboardAvoidingView>
       </TouchableWithoutFeedback>
-      <TouchableOpacity style={styles.submitContainer} onPress={handleSubmit}>
-        <Text style={styles.submitText}>Create Event</Text>
-      </TouchableOpacity>
 
       {/* Event List */}
       <View style={{ marginTop: 40 }}>

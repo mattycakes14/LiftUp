@@ -66,10 +66,9 @@ const CreateEvent = () => {
         console.error("Error fetching events:", error);
       }
     };
-
     fetchEvents(); // Call the fetch function on component mount
   }, []); // Empty dependency array ensures this runs only once on mount
-
+  console.log(events);
   return (
     <SafeAreaView>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>

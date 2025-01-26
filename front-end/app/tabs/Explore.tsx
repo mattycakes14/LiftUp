@@ -22,7 +22,7 @@ const Explore = () => {
   //filter search
   const [filteredData, setFilteredData] = useState(eventData);
   //fetch data
-  const [data, setData] = useState([]);
+  const [fetchData, setFetchData] = useState([]);
   useEffect(() => {
     if (search === "") {
       setFilteredData(eventData);
@@ -34,19 +34,22 @@ const Explore = () => {
     }
   }, [search]);
   //sample data
-
+  // Event List Fetch
+  const [events, setEvents] = useState([]);
   //get request
   useEffect(() => {
-    const fetchData = async () => {
+    // Make the GET request to fetch all events
+    const fetchEvents = async () => {
       try {
-        const data = await axios.get("http://10.13.165.0:5000/events");
-        setData(data);
-      } catch (err) {
-        console.log(err);
+        const response = await axios.get("http://192.168.1.100:5000/events"); // Replace with your backend IP
+        setEvents(response.data); // Store the fetched events in the state
+      } catch (error) {
+        console.error("Error fetching events:", error);
       }
     };
-    fetchData();
-  }, []);
+    fetchEvents(); // Call the fetch function on component mount
+  }, [search]);
+
   const eventData = [
     {
       id: 1,

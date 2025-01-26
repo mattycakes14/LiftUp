@@ -7,6 +7,7 @@ export default function Index() {
     // "Roboto-Regular": require("./assets/fonts/Roboto-Regular.ttf"),
     // "Roboto-Bold": require("./assets/fonts/Roboto-Bold.ttf"),
   });
+
   return (
     <>
       <LogIn />

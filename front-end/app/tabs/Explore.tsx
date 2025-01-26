@@ -12,7 +12,7 @@ import {
 } from "react-native";
 import SearchTags from "../components/SearchTags";
 import { useNavigation } from "@react-navigation/native";
-import MapView from "react-native-maps";
+
 const Explore = () => {
   //handle navigation
   const navigation = useNavigation();

@@ -184,7 +184,7 @@ const styles = StyleSheet.create({
   },
   dateContainer: {
     marginTop: 20,
-    marginLeft: 5,
+    marginLeft: 45,
     marginRight: 60,
   },
   eventNameInput: {
@@ -196,7 +196,7 @@ const styles = StyleSheet.create({
   },
   eventNameContainer: {
     marginTop: 20,
-    marginLeft: 5,
+    marginLeft: 45,
     marginRight: 60,
   },
   eventTitleContainer: {

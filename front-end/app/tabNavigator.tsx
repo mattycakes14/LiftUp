@@ -10,9 +10,21 @@ const TabNavigator = () => {
 
   return (
     <Tab.Navigator>
-      <Tab.Screen name="Explore" component={Explore} />
-      <Tab.Screen name="CreateEvent" component={CreateEvent} />
-      <Tab.Screen name="Profile" component={Profile} />
+      <Tab.Screen
+        name="Explore"
+        component={Explore}
+        options={{ headerShown: false }}
+      />
+      <Tab.Screen
+        name="CreateEvent"
+        component={CreateEvent}
+        options={{ headerShown: false }}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={Profile}
+        options={{ headerShown: false }}
+      />
     </Tab.Navigator>
   );
 };

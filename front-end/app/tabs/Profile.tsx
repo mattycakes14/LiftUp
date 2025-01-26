@@ -41,10 +41,10 @@ const Profile = () => {
 
       {/* Stats Section */}
       <View style={styles.statsContainer}>
-        <Text style={styles.statText}>
+        <Text style={styles.eventStatsText}>
           Hours Volunteered: <Text style={styles.bold}>120</Text>
         </Text>
-        <Text style={styles.statText}>
+        <Text style={styles.eventStatsText}>
           Events Attended: <Text style={styles.bold}>15</Text>
         </Text>
       </View>
@@ -86,6 +86,10 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginBottom: 8,
   },
+  eventStatsText: {
+    fontSize: 21,
+    marginBottom: 8,
+  },
   bold: {
     fontWeight: "bold",
   },
@@ -103,7 +107,7 @@ const styles = StyleSheet.create({
   redContainer: {
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 10,
+    marginTop: 180,
     backgroundColor: "red",
     padding: 20,
     marginLeft: 100,
